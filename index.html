@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ONINASPAD</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: #faf7f2;
+    color: #2d2d2d;
+    line-height: 1.6;
+  }
+
+  /* HEADER */
+  header {
+    background: linear-gradient(135deg, #b3402f, #d97a4a);
+    color: #fff;
+    text-align: center;
+    padding: 40px 20px 30px;
+  }
+  header h1 {
+    font-size: 38px;
+    letter-spacing: 2px;
+  }
+  header p {
+    font-size: 15px;
+    opacity: 0.9;
+    margin-top: 6px;
+  }
+
+  /* NAV */
+  nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    background: #fff;
+    padding: 16px 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  nav button {
+    border: none;
+    background: #f0e9e1;
+    color: #5a4a3a;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.25s;
+  }
+  nav button:hover { background: #e2d5c7; }
+  nav button.active {
+    background: #b3402f;
+    color: #fff;
+  }
+
+  /* CONTENT */
+  main {
+    max-width: 960px;
+    margin: 30px auto 60px;
+    padding: 0 20px;
+  }
+
+  .page { display: none; animation: fade 0.35s ease; }
+  .page.active { display: block; }
+
+  @keyframes fade {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  h2 {
+    font-size: 26px;
+    color: #b3402f;
+    margin-bottom: 14px;
+    border-left: 5px solid #d97a4a;
+    padding-left: 12px;
+  }
+
+  p { margin-bottom: 14px; color: #444; }
+
+  /* IMAGE PLACEHOLDER */
+  .img-box {
+    width: 100%;
+    height: 260px;
+    background: #efe6da;
+    border: 2px dashed #c8b6a4;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #9b8a78;
+    font-size: 14px;
+    margin: 18px 0;
+    text-align: center;
+    padding: 20px;
+  }
+  .img-box .icon { font-size: 46px; margin-bottom: 8px; }
+
+  /* CARD GRID */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+    margin-top: 18px;
+  }
+  .card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 20px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+    border-top: 5px solid #d97a4a;
+  }
+  .card h3 {
+    color: #b3402f;
+    font-size: 17px;
+    margin-bottom: 6px;
+  }
+  .card p { font-size: 14px; margin: 0; }
+
+  .flavor {
+    text-align: center;
+  }
+  .flavor .img-box {
+    height: 140px;
+    margin: 0 0 12px;
+  }
+
+  /* TEAM */
+  .team-card {
+    text-align: center;
+    border-top-color: #3d8b7a;
+  }
+  .avatar {
+    width: 60px; height: 60px;
+    background: #3d8b7a;
+    border-radius: 50%;
+    margin: 0 auto 10px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .avatar svg { width: 32px; height: 32px; fill: #fff; }
+
+  footer {
+    text-align: center;
+    font-size: 13px;
+    color: #999;
+    padding: 20px;
+  }
+
+  @media (max-width: 500px) {
+    header h1 { font-size: 28px; }
+    nav button { padding: 8px 14px; font-size: 13px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>ONINASPAD</h1>
+  <p>Japanese Onigiri × Indonesian Nasi Padang</p>
+</header>
+
+<nav>
+  <button class="active" onclick="showPage('home', this)">Home</button>
+  <button onclick="showPage('product', this)">Product</button>
+  <button onclick="showPage('flavors', this)">Flavors</button>
+  <button onclick="showPage('sop', this)">How to Eat</button>
+  <button onclick="showPage('team', this)">Team</button>
+</nav>
+
+<main>
+
+  <!-- PAGE 1: HOME -->
+  <section id="home" class="page active">
+    <h2>Welcome to ONINASPAD</h2>
+    <p>ONINASPAD is a fusion food that combines the convenience of Japanese <b>onigiri</b> with the bold taste of Indonesian <b>Nasi Padang</b>. It is a rice ball wrapped in nori (seaweed), filled with rendang, ayam gulai, or paru.</p>
+    <p>Portable. Affordable. Delicious. Perfect for students, workers, and anyone on the go.</p>
+
+    <div class="img-box">
+      <div class="icon">🍙</div>
+      <b>[ Image: ONINASPAD hero shot ]</b><br>
+      Replace this box with your product photo
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h3>🎌 Fusion Concept</h3>
+        <p>Japanese format, Indonesian flavor.</p>
+      </div>
+      <div class="card">
+        <h3>🏪 Easy to Find</h3>
+        <p>Sold in convenience stores near you.</p>
+      </div>
+      <div class="card">
+        <h3>💰 Affordable</h3>
+        <p>Only Rp 20,000 per piece.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAGE 2: PRODUCT -->
+  <section id="product" class="page">
+    <h2>Our Product</h2>
+    <p>ONINASPAD looks like a classic Japanese onigiri. Inside, it hides authentic Padang fillings that bring a rich and spicy Indonesian taste.</p>
+    <p>Each piece weighs about 120 grams. It is wrapped in a peel-off plastic film to keep it fresh and clean.</p>
+
+    <div class="img-box">
+      <div class="icon">🍙</div>
+      <b>[ Image: ONINASPAD product close-up ]</b><br>
+      Show the nori, rice, and filling
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Nori Outside</h3>
+        <p>Crispy seaweed wrap for a Japanese touch.</p>
+      </div>
+      <div class="card">
+        <h3>Padang Inside</h3>
+        <p>Bold, spicy, and savory Indonesian fillings.</p>
+      </div>
+      <div class="card">
+        <h3>Peel & Eat</h3>
+        <p>No plate. No utensils. Just open and enjoy.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAGE 3: FLAVORS -->
+  <section id="flavors" class="page">
+    <h2>Flavor Variants</h2>
+    <p>Choose the Padang filling that matches your mood. Each one is made fresh every day.</p>
+
+    <div class="grid">
+      <div class="card flavor">
+        <div class="img-box">
+          <div class="icon">🌶️</div>
+          <b>[ Rendang Image ]</b>
+        </div>
+        <h3>Spicy Rendang</h3>
+        <p>Rich, spicy, and slow-cooked beef rendang.</p>
+      </div>
+
+      <div class="card flavor">
+        <div class="img-box">
+          <div class="icon">🍛</div>
+          <b>[ Gulai Image ]</b>
+        </div>
+        <h3>Mild Gulai</h3>
+        <p>Creamy and soft ayam gulai with coconut milk.</p>
+      </div>
+
+      <div class="card flavor">
+        <div class="img-box">
+          <div class="icon">🍖</div>
+          <b>[ Paru Image ]</b>
+        </div>
+        <h3>Crispy Paru</h3>
+        <p>Crunchy and flavorful beef paru, fried to perfection.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAGE 4: SOP -->
+  <section id="sop" class="page">
+    <h2>How to Eat ONINASPAD</h2>
+    <p>Eating ONINASPAD is quick and easy. Follow these simple steps:</p>
+
+    <div class="grid">
+      <div class="card"><h3>1. Order</h3><p>Buy from the store or through an app.</p></div>
+      <div class="card"><h3>2. Pick Up</h3><p>Take it from the refrigerated shelf.</p></div>
+      <div class="card"><h3>3. Peel</h3><p>Pull the plastic film tab to open.</p></div>
+      <div class="card"><h3>4. Hold</h3><p>Hold the nori to keep hands clean.</p></div>
+      <div class="card"><h3>5. Eat</h3><p>Bite in and enjoy the fusion.</p></div>
+    </div>
+
+    <div class="img-box" style="margin-top:22px;">
+      <div class="icon">🥢</div>
+      <b>[ Image: Step-by-step peeling guide ]</b><br>
+      Show the wrapper being peeled off
+    </div>
+  </section>
+
+  <!-- PAGE 5: TEAM -->
+  <section id="team" class="page">
+    <h2>Meet the Team</h2>
+    <p>The people behind ONINASPAD.</p>
+
+    <div class="grid">
+      <div class="card team-card">
+        <div class="avatar"><svg viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg></div>
+        <h3>Mr. Benito</h3>
+        <p>Marketing Lead</p>
+      </div>
+      <div class="card team-card">
+        <div class="avatar"><svg viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg></div>
+        <h3>Ms. Erina</h3>
+        <p>Finance Lead</p>
+      </div>
+      <div class="card team-card">
+        <div class="avatar"><svg viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg></div>
+        <h3>Ms. Gloria</h3>
+        <p>Product Designer</p>
+      </div>
+      <div class="card team-card">
+        <div class="avatar"><svg viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg></div>
+        <h3>Member 4</h3>
+        <p>Operations Lead</p>
+      </div>
+    </div>
+
+    <div class="img-box" style="margin-top:22px;">
+      <div class="icon">📸</div>
+      <b>[ Image: Team photo ]</b><br>
+      Add your group picture here
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  © 2026 ONINASPAD · Student Business Proposal
+</footer>
+
+<script>
+  function showPage(id, btn) {
+    // Hide all pages
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    // Remove active from all buttons
+    document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+    // Show selected page
+    document.getElementById(id).classList.add('active');
+    // Highlight clicked button
+    btn.classList.add('active');
+    // Scroll to top of content
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+
+</body>
+</html>
